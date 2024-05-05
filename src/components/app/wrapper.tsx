@@ -134,12 +134,17 @@ export function Wrapper() {
                   isFormated ? setIsFormated(false) : setIsFormated(true)
                 }
               />
-              <Label htmlFor="formated" className="text-sm">
-                Formatado?
+              <Label
+                htmlFor="formated"
+                className={`text-sm ${
+                  isFormated ? "text-gray-900" : "text-gray-400"
+                }`}
+              >
+                {isFormated ? "Formatado" : "Formatar?"}
               </Label>
             </div>
             <Button
-              className="bg-emerald-500"
+              className="bg-emerald-500 hover:bg-emerald-600 text-white w-1/3"
               type="submit"
               disabled={form.formState.isSubmitting}
             >
@@ -162,28 +167,28 @@ export function Wrapper() {
             <Button
               variant="ghost"
               type="button"
-              className="absolute right-0 top-0 hover:bg-emerald-500 group h-full"
+              className="absolute right-0 top-0 bg-transparent group h-full border-none"
               disabled={!document}
               onClick={handleClipBoardCopy}
             >
               <Copy
                 size={16}
-                className="text-gray-400 group-hover:bg-emerald-500 group-hover:text-gray-100"
-              />
-            </Button>
-            <Button
-              variant="ghost"
-              type="button"
-              className="absolute right-12 top-0 group h-full"
-              disabled={!document}
-              onClick={handleResetForm}
-            >
-              <RotateCcw
-                size={16}
-                className="text-gray-400 group-hover:text-rose-400 bg-transparent"
+                className="text-gray-400 bg-transparent group-hover:text-gray-700"
               />
             </Button>
           </div>
+          {document && (
+            <Button
+              variant="link"
+              type="button"
+              className="group gap-2 text-rose-400 outline-none"
+              disabled={!document}
+              onClick={handleResetForm}
+            >
+              <RotateCcw size={16} className="text-rose-400" />
+              Limpar
+            </Button>
+          )}
         </form>
       </Form>
 
