@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "DocGen",
+  "version": "1.0",
+  "description": "Geração de Documentos Brasileiros",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "action": {
+    "default_title": "DocGen",
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "logo-docgen.png",
+    "48": "logo-docgen.png",
+    "128": "logo-docgen.png"
+  }
+}
